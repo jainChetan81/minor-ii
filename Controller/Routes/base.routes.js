@@ -13,7 +13,7 @@ Router.get("/", (req, res) => {
 
 Router.get("/signup", (req, res) => {
   if (!req.session.user) {
-    res.render("signup");
+    res.render("signup", { errors: [] });
   } else {
     res.redirect("/dashboard");
   }
