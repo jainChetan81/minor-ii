@@ -24,8 +24,14 @@ Router.post("/signup", (req, res) => {
     newuser.hours = req.body.hours;
     console.log(newuser);
 
-    newuser.save(user => {
+    newuser.save((err, user) => {
       console.log(user);
+      if (err) {
+        return res.send({
+          success: false,
+          message: "Error: Server error"
+        });
+      }
       req.session.user = user;
       res.redirect("/dashboard");
     });
