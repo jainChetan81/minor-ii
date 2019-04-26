@@ -12,9 +12,10 @@ const express = require("express"),
 
 /* REQUIRING OUR ROUTE FILES: */
 const baseRoutes = require("./Controller/Routes/base.routes"),
-  // localRoutes = require("./Controller/Routes/local.routes"),
-  indexRouter = require("./routes/index"),
-  usersRouter = require("./routes/users");
+  localRoutes = require("./Controller/Routes/local.routes");
+
+/* CONNECTING TO MONGOOSE: */
+mongoose.connect(key.mongo);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -36,15 +37,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-/* CONNECTING TO MONGOOSE: */
-mongoose.connect(db);
-
 //Routes
-// app.use("/", indexRouter);
-// app.use("/users", usersRouter);
-
 app.use("/", baseRoutes);
-// app.use("/auth/local", localRoutes);
+app.use("/auth/local", localRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -12,7 +12,7 @@ Router.post("/signup", (req, res) => {
   if (!usernameIsGood) alert("username field must be filled");
   if (!licnoIsGood) alert("lic no field must be filled");
   if (!emailIsGood) alert("username field must be filled");
-  console.log(usernameIsGood + licnoIsGood + "bjhbjkbjkkj");
+  console.log(usernameIsGood + licnoIsGood + "all good");
 
   if (errors.length > 0) {
     res.redirect("/");
@@ -25,6 +25,7 @@ Router.post("/signup", (req, res) => {
     console.log(newuser);
 
     newuser.save(user => {
+      console.log(user);
       req.session.user = user;
       res.redirect("/dashboard");
     });
