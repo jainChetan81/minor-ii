@@ -1,0 +1,261 @@
+{{!-- <h1>{{title}}</h1>
+<p>Welcome to {{title}}</p> --}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Chetan Jain</title>
+</head>
+
+<body data-spy="scroll" data-target="#main-nav" id="home">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">LoopLab</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#home-section" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#explore-head-section" class="nav-link">Explore</a>
+                    </li>
+                    <!-- <li class="nav-item-head-section">
+              <a href="#share-head-section" class="nav-link">Share</a>
+            </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Home section-->
+    <header id="home-section">
+        <div class="dark-overlay">
+            <div class="container home-inner">
+                <div class="row">
+                    <div class="col-lg-8 d-none d-lg-block">
+                        <h1 class="display-4">
+                            Easy<strong> Car Parking</strong> and payment
+                            <strong>solutions</strong>
+                        </h1>
+
+                        <div class="d-flex">
+                            <div class="p-4 align-self-start">
+                                <i class="fas fa-check fa-2x"></i>
+                            </div>
+                            <div class="p-4 align-self-end">
+                                <p class="lead">Easy to find Parking Space and Slots</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex">
+                            <div class="p-4 align-self-start">
+                                <i class="fas fa-check fa-2x"></i>
+                            </div>
+                            <div class="p-4 align-self-end">
+                                <p class="lead">
+                                    Cheaper Price rate avaible per hour billing
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex">
+                            <div class="p-4 align-self-start">
+                                <i class="fas fa-check fa-2x"></i>
+                            </div>
+                            <div class="p-4 align-self-end">
+                                <p class="lead">Automated parking solutions to save time</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card bg-primary text-center card-from">
+                            <div class="card-body">
+                                <h3>Sign Up</h3>
+                                <p>Please fill out this form to register</p>
+                                <form action="/auth/local/signup" method="post">
+                                    <div class="form-group">
+                                        <input type="text" class="from-control form-control-lg" placeholder="Username"
+                                            name="username" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="from-control form-control-lg" placeholder="email"
+                                            name="email" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="from-control form-control-lg"
+                                            placeholder="License. NO" name="licno" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" min="1" max="10" class="from-control form-control-lg"
+                                            placeholder="hours" name="hours" />
+                                    </div>
+                                    <input type="submit" value="Submit" class="btn btn-outline btn-block" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!--Explore section-->
+    <section id="explore-head-section" class="bg-light text-muted py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="img/explore-section1.jpg" alt="" class="img-fluid mb-3 rounded-circle" />
+                </div>
+                <div class="col-md-6">
+                    <h3>Explore & Connect</h3>
+                    <p>
+                        Connecting you to various Places with the click of a button.
+                        Anywhere you are no need to worry looking for parking spaces or
+                        pay high parking fee this is an easy and cheap solution to your
+                        problems
+                    </p>
+                    <div class="d-flex">
+                        <div class="p-4 align-self-start">
+                            <i class="fas fa-check fa-2x"></i>
+                        </div>
+
+                        <div class="p4 align-self-end">
+                            Accurately predict and sense spot/vehicle occupancy in
+                            real-time.Guides residents and visitors to available parking.
+                            Optimize Parking Space Usage
+                        </div>
+                    </div>
+
+                    <div class="d-flex">
+                        <div class="p-4 align-self-start">
+                            <i class="fas fa-check fa-2x"></i>
+                        </div>
+                        <div class="p4 align-self-end">
+                            Simplifies the parking experience and adds value for parking
+                            stakeholders, such as drivers and merchants Help traffic in the
+                            city flow more freely leveraging IoT technology.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--create head-->
+    <section id="create-head-section" class="bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center py-5">
+                    <h1 class="display-4">Create</h1>
+                    <p class="lead">
+                        Help us by contributing towards on our open source society an
+                        Github and Help us finding errors and bugs within. You can also
+                        help us by donaating towards this company through any e wallet
+                    </p>
+                    <a href="#" class="btn btn-outline-light">Find Out More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--footer-->
+    <footer id="main-footer" class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center py-4">
+                    <h3>LoopLab</h3>
+                    <p>Copyright &copy; <span id="year"></span></p>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#contactModal">
+                        Contact Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Contact Modal-->
+    <div class="modal fade text-dark" id="contactModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Contact Us</h5>
+                    <button class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="username" />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Email</label>
+                            <input type="email" name="email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">phone no</label>
+                            <input type="number" name="number" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Message</label>
+                            <textarea class="form-control" name="message"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary btn-block">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Get the current year for the copyright
+        $("#year").text(new Date().getFullYear());
+
+        //init scrollspy
+        $("body").scrollspy({ target: "#main-nav" });
+
+        //smooth scrooling
+        $("#main-nav a").on("click", function (event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                const hash = this.hash;
+                $("html,body").animate(
+                    {
+                        scrollTop: $(hash).offset().top
+                    },
+                    800,
+                    function () {
+                        window.location.hash = hash;
+                    }
+                );
+            }
+        });
+    </script>
+</body>
+
+</html>
