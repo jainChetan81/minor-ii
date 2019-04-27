@@ -81,9 +81,9 @@
                             <div class="card-body">
                                 <h3>Sign Up</h3>
                                 <p>Please fill out this form to register</p>
-                                {{ errors.forEach((error)=>{ }}
-                                <p>{{ error }}</p>
-                                {{ }) }}
+                                {{#each errors}}
+                                <p>{{this}}</p>
+                                {{/each}}
                                 <form action="/auth/local/signup" method="post">
                                     <div class="form-group">
                                         <input type="text" class="from-control form-control-lg" placeholder="Username"

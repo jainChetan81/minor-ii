@@ -19,6 +19,37 @@
         <div class="col-md-6 p4">
             <div class="container">
                 <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+                <b>Start: </b>
+                <select id="start">
+                    <option value="chicago, il">Chicago</option>
+                    <option value="st louis, mo">St Louis</option>
+                    <option value="joplin, mo">Joplin, MO</option>
+                    <option value="oklahoma city, ok">Oklahoma City</option>
+                    <option value="amarillo, tx">Amarillo</option>
+                    <option value="gallup, nm">Gallup, NM</option>
+                    <option value="flagstaff, az">Flagstaff, AZ</option>
+                    <option value="winona, az">Winona</option>
+                    <option value="kingman, az">Kingman</option>
+                    <option value="barstow, ca">Barstow</option>
+                    <option value="san bernardino, ca">San Bernardino</option>
+                    <option value="los angeles, ca">Los Angeles</option>
+                </select>
+                <b>End: </b>
+                <select id="end">
+                    <option value="chicago, il">Chicago</option>
+                    <option value="st louis, mo">St Louis</option>
+                    <option value="joplin, mo">Joplin, MO</option>
+                    <option value="oklahoma city, ok">Oklahoma City</option>
+                    <option value="amarillo, tx">Amarillo</option>
+                    <option value="gallup, nm">Gallup, NM</option>
+                    <option value="flagstaff, az">Flagstaff, AZ</option>
+                    <option value="winona, az">Winona</option>
+                    <option value="kingman, az">Kingman</option>
+                    <option value="barstow, ca">Barstow</option>
+                    <option value="san bernardino, ca">San Bernardino</option>
+                    <option value="los angeles, ca">Los Angeles</option>
+                </select>
+
                 <div id="map"></div>
             </div>
         </div>
@@ -48,8 +79,8 @@
 </body>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdX_wis1pUZMUv_7mhJEChZcA_DiZww3A&libraries=places,visualization&callback=initilize"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdX_wis1pUZMUv_7mhJEChZcA_DiZww3A&libraries=places&callback=initilize"></script>
 
-<script src="javascript/maps.js"></script>
+<script src="javascripts/maps.js"></script>
 
 </html>

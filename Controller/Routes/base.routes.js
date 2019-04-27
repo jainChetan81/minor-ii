@@ -20,12 +20,12 @@ Router.get("/signup", (req, res) => {
 });
 
 Router.get("/dashboard", (req, res) => {
-  if (req.session.user || req.user) {
-    let user = req.session.user || req.user;
-    res.render("dashboard");
-  } else {
-    res.redirect("/");
-  }
+  // if (req.session.user || req.user) {
+  //   let user = req.session.user || req.user;
+  res.render("dashboard");
+  // } else {
+  //   res.redirect("/");
+  // }
 });
 Router.get("/logout", function(req, res) {
   console.log("logging out : " + req.session.user || req.user);
