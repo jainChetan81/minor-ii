@@ -172,19 +172,19 @@ $(document).ready(function() {
       var directionsService = new google.maps.DirectionsService(),
         directionsDisplay = new google.maps.DirectionsRenderer({
           map: map
-        })
-        // markerA = new google.maps.Marker({
-        //   position: user,
-        //   title: "user",
-        //   label: "user",
-        //   map: map
-        // }),
-        // markerB = new google.maps.Marker({
-        //   position: dest,
-        //   title: "Dest",
-        //   label: "Dest",
-        //   map: map
-        // });
+        });
+      // markerA = new google.maps.Marker({
+      //   position: user,
+      //   title: "user",
+      //   label: "user",
+      //   map: map
+      // }),
+      // markerB = new google.maps.Marker({
+      //   position: dest,
+      //   title: "Dest",
+      //   label: "Dest",
+      //   map: map
+      // });
 
       // get route from A to B
       calculateAndDisplayRoute(
