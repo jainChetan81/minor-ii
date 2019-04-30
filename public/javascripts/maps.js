@@ -2,49 +2,55 @@ $(document).ready(function() {
   initMap();
   function initMap() {
     //map options
-    var options = {
-      zoom: 14,
-      center: { lat: 28.6323384, lng: 77.37262659999999 }
-    };
+    let options = {
+        zoom: 14,
+        center: { lat: 28.6323384, lng: 77.37262659999999 }
+      },
+      flag = -1,
+      map = new google.maps.Map(document.getElementById("map"), options),
+      x = document.getElementById("demo"),
+      location = $("#location"),
+      nearest = $("#nearest"),
+      locations = [
+        {
+          lat: 28.65209,
+          lng: 77.341734
+        },
+        {
+          lat: 28.610131,
+          lng: 77.37308
+        },
+        {
+          lat: 28.624859,
+          lng: 77.391539
+        },
+        {
+          lat: 28.638056,
+          lng: 77.388582
+        },
+        {
+          lat: 28.641296,
+          lng: 77.367811
+        },
+        {
+          lat: 28.624063,
+          lng: 77.355118
+        }
+      ];
 
-    //map
-    var map = new google.maps.Map(document.getElementById("map"), options);
     //
-    var locations = [
-      {
-        lat: 28.65209,
-        lng: 77.341734
-      },
-      {
-        lat: 28.610131,
-        lng: 77.37308
-      },
-      {
-        lat: 28.624859,
-        lng: 77.391539
-      },
-      {
-        lat: 28.638056,
-        lng: 77.388582
-      },
-      {
-        lat: 28.641296,
-        lng: 77.367811
-      },
-      {
-        lat: 28.624063,
-        lng: 77.355118
-      }
-    ];
-
-    //Geolocation
-    var x = document.getElementById("demo");
-    let location = $("#location");
     location.click(() => {
-      console.log("button clicked");
+      console.log("button clicked location");
+      flag = 0;
+      getLocation();
+    });
+    nearest.click(() => {
+      console.log("button clicked nearest");
+      flag = 1;
       getLocation();
     });
 
+    //Geolocation
     function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -52,20 +58,46 @@ $(document).ready(function() {
         x.innerHTML = "Geolocation is not supported by this browser.";
       }
     }
-
     function showPosition(position) {
       let user = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      CalculateRoute(user);
-      x.innerHTML =
-        "Latitude: " +
-        position.coords.latitude +
-        "<br>Longitude: " +
-        position.coords.longitude;
+      console.log(flag);
+      if (flag == 0) {
+        console.log("addMarker");
+        addMarker(user);
+        flag = -1;
+      }
+      if (flag == 1) {
+        console.log("find route");
+        CalculateRoute(user);
+        flag = -1;
+      }
     }
     ///Geolocation
+
+    //add marker
+    function addMarker(user) {
+      console.log("[AddMarker]");
+      locations.forEach(mark => {
+        var marker = new google.maps.Marker({
+          position: mark,
+          map: map
+        });
+        marker.addListener("click", function() {
+          console.log("clicked");
+          findroute(user, mark);
+        });
+      });
+      const markerA = new google.maps.Marker({
+        position: user,
+        title: "user",
+        label: "user",
+        map: map
+      });
+    }
+    ///end of add marker
 
     //calculate distance
     var rad = function(x) {
@@ -74,9 +106,8 @@ $(document).ready(function() {
     function CalculateRoute(user) {
       var R = 6378137;
       var shortest = 1000000000;
-      var short = {};
+      var shortRoute = {};
       locations.forEach((route, index) => {
-        console.log(index, "  file   :  ", route.lat);
         var dLat = rad(route.lat - user.lat);
         var dLong = rad(route.lng - user.lng);
         var a =
@@ -89,7 +120,7 @@ $(document).ready(function() {
         var d = R * c;
         if (d < shortest) {
           shortest = d;
-          short = route;
+          shortRoute = route;
           console.log("this is the shortest : ", d, " index : ", index);
         }
       });
@@ -97,8 +128,11 @@ $(document).ready(function() {
         alert("there is no parking space in your area");
         console.log("there is no parking space in your area");
       } else {
-        console.log("else");
-        findroute(user, short);
+        x.innerHTML =
+          "you need to trave :" +
+          Math.floor(shortest) +
+          "m to react nearest parking space";
+        findroute(user, shortRoute);
       }
     } //end of distance
 
@@ -131,31 +165,26 @@ $(document).ready(function() {
       });
       map.fitBounds(bounds);
     }); //end of search place
+    //end of search
 
     //direction and route
     function findroute(user, dest) {
-      console.log("destination : ", dest);
-      var options = {
-        zoom: 124,
-        center: user //{ lat: 28.6323384, lng: 77.37262659999999 }
-      };
-      let map = new google.maps.Map(document.getElementById("map"), options);
       var directionsService = new google.maps.DirectionsService(),
         directionsDisplay = new google.maps.DirectionsRenderer({
           map: map
-        }),
-        markerA = new google.maps.Marker({
-          position: user,
-          title: "user",
-          label: "user",
-          map: map
-        }),
-        markerB = new google.maps.Marker({
-          position: dest,
-          title: "D",
-          label: "D",
-          map: map
-        });
+        })
+        // markerA = new google.maps.Marker({
+        //   position: user,
+        //   title: "user",
+        //   label: "user",
+        //   map: map
+        // }),
+        // markerB = new google.maps.Marker({
+        //   position: dest,
+        //   title: "Dest",
+        //   label: "Dest",
+        //   map: map
+        // });
 
       // get route from A to B
       calculateAndDisplayRoute(
@@ -178,9 +207,7 @@ $(document).ready(function() {
             travelMode: google.maps.TravelMode.DRIVING
           },
           function(response, status) {
-            console.log(user.lng);
             if (status == google.maps.DirectionsStatus.OK) {
-              console.log(user.lng);
               directionsDisplay.setDirections(response);
             } else {
               window.alert("Directions request failed due to " + status);
