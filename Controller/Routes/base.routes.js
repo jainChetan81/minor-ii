@@ -27,6 +27,14 @@ Router.get("/dashboard", (req, res) => {
   //   res.redirect("/");
   // }
 });
+Router.get("/dashboard/parking", (req, res) => {
+  // if (req.session.user || req.user) {
+  //   let user = req.session.user || req.user;
+  res.render("park");
+  // } else {
+  //   res.redirect("/");
+  // }
+});
 Router.get("/logout", function(req, res) {
   console.log("logging out : " + req.session.user || req.user);
   req.session.destroy(function(err) {

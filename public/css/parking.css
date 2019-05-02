@@ -1,0 +1,9 @@
+.floor {
+  width: 80%;
+  background-color: red;
+  height: 600px;
+}
+.floor .spaces {
+  width: 50%;
+  height: 30%;
+}
