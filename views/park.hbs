@@ -81,7 +81,7 @@
         .spaces {
             width: 100%;
             height: 30%;
-            background-color: darkred;
+            background-color: darkgreen;
             opacity: 0.8;
         }
 
@@ -283,7 +283,7 @@
 
 
         .parkhere {
-            background-color: darkgreen;
+            background-color: darkred;
         }
 
         /* /left bounce */
@@ -317,7 +317,6 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary" id="hide">Hide</button>
     </div>
 
 
@@ -340,62 +339,98 @@
                 side6 = $("#side6"),
                 mid1 = $("#mid1"),
                 mid2 = $("#mid2"),
-                mid3 = $("#mid3"),
-                hide = $("#hide");
-            let ar = [1, 1, 1, 1, 1, 1]
+                mid3 = $("#mid3");
+            const URL = "https://api.thingspeak.com/channels/773406/feeds.json?api_key=8VELFHFUDOLUNUS6&results=2";
 
-            hide.click(() => {
-                console.log("click");
-                showPath(ar);
-            });
 
-            //   setInterval(function() {
-            //     $.ajax({
-            //       url: URL,
-            //       method: "GET",
-            //       success: function(data) {
-            //         console.log(data);
-            //       }
-            //     });
-            //   }, 10000);
-            function showPath(arr) {
-                if (arr[0] == 1) {
+            setInterval(function () {
+                console.log('ajax');
+                $.ajax({
+                    url: URL,
+                    method: "GET",
+                    success: function (data) {
+                        let arr = [1, 0, 1, 1, 0, 0]
+                        console.log('something' + data.feeds[0].field1 + "   sdfdsgfdgdf     " + data.feeds[0].field2);
+                        showPath(arr, data)
+                    }
+                });
+            }, 5000);
+
+            function showPath(arr, data) {
+                if (data.feeds[1].field1 < 10) {
                     first.addClass('parkhere');
                     mid3.removeClass('hidden-div');
                     mid2.removeClass('hidden-div');
                     mid1.removeClass('hidden-div');
                     side3.removeClass('hidden-div');
                 }
-                if (arr[1] == 1) {
+                else {
+                    first.removeClass('parkhere');
+                    mid3.addClass('hidden-div');
+                    mid2.addClass('hidden-div');
+                    mid1.addClass('hidden-div');
+                    side3.addClass('hidden-div');
+                }/*
+                {{!-- if (arr[1] == 1) {
                     second.addClass('parkhere');
                     mid3.removeClass('hidden-div');
                     mid2.removeClass('hidden-div');
                     side2.removeClass('hidden-div');
                 }
-                if (arr[2] == 1) {
+                else {
+                    second.removeClass('parkhere');
+                    mid3.addClass('hidden-div');
+                    mid2.addClass('hidden-div');
+                    side2.addClass('hidden-div');
+                } --}}*/
+
+                if (data.feeds[1].field2 < 10) {
                     third.addClass('parkhere');
                     mid3.removeClass('hidden-div');
                     side1.removeClass('hidden-div');
                 }
+                else {
+                    third.removeClass('parkhere');
+                    mid3.addClass('hidden-div');
+                    side1.addClass('hidden-div');
+                }
                 if (arr[3] == 1) {
-
                     fourth.addClass('parkhere');
                     mid3.removeClass('hidden-div');
                     mid2.removeClass('hidden-div');
                     mid1.removeClass('hidden-div');
                     side4.removeClass('hidden-div');
                 }
-                if (arr[4] == 1) {
+                else {
+                    fourth.removeClass('parkhere');
+                    mid3.addClass('hidden-div');
+                    mid2.addClass('hidden-div');
+                    mid1.addClass('hidden-div');
+                    side4.addClass('hidden-div');
+                }
+                /*
+                {{!-- if (arr[4] == 1) {
                     fifth.addClass('parkhere')
                     mid2.removeClass('hidden-div');
                     mid1.removeClass('hidden-div');
                     side5.removeClass('hidden-div');
                 }
+                else {
+                    fifth.removeClass('parkhere')
+                    mid2.addClass('hidden-div');
+                    mid1.addClass('hidden-div');
+                    side5.addClass('hidden-div');
+                } --}}
                 if (arr[5] == 1) {
                     sixth.addClass('parkhere');
                     mid3.removeClass('hidden-div');
                     side6.removeClass('hidden-div');
                 }
+                else {
+                    sixth.removeClass('parkhere');
+                    mid1.addClass('hidden-div');
+                    side6.addClass('hidden-div');
+                }*/
             }
         });
 
