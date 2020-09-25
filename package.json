@@ -11,7 +11,7 @@
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "express-session": "^1.16.1",
-    "hbs": "~4.0.1",
+    "hbs": "^4.1.1",
     "http-errors": "~1.6.2",
     "mongo": "^0.1.0",
     "mongoose": "^5.5.3",
@@ -20,5 +20,19 @@
     "nodemon": "^1.18.11",
     "passport": "^0.4.0",
     "save": "^2.3.3"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terminatorDX/minor-ii.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/terminatorDX/minor-ii/issues"
+  },
+  "homepage": "https://github.com/terminatorDX/minor-ii#readme",
+  "description": ""
 }
